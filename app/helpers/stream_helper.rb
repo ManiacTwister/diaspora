@@ -12,6 +12,8 @@ module StreamHelper
       person_path(@person, :max_time => @posts.last.created_at.to_i)
     elsif controller.instance_of?(AspectsController)
       aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
+    elsif controller.instance_of?(MentionsController)
+      mentions_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
     else
       raise 'in order to use pagination for this new controller, update next_page_path in stream helper'
     end

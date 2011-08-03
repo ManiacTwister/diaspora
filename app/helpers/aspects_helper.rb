@@ -3,6 +3,11 @@
 #   the COPYRIGHT file.
 
 module AspectsHelper
+
+  def all_aspects_selected?
+    @aspect == :all
+  end
+
   def remove_link(aspect)
     if aspect.contacts.size == 0
       link_to I18n.t('aspects.helper.remove'), aspect, :method => :delete, :confirm => I18n.t('aspects.helper.are_you_sure')

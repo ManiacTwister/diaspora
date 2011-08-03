@@ -17,16 +17,18 @@
 
   .section
     = render 'tags/followed_tags_listings'
+  .section
+    = link_to 'mentions', mentions_path
 
 .span-13.append-1
   #aspect_stream_container.stream_container
-    = render 'aspect_stream',
+    = render 'aspects/aspect_stream',
       :aspect => @aspect,
       :aspect_ids => @aspect_ids,
       :posts => @posts
 
 .span-5.rightBar.last
-  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
+  = render 'aspects/selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
 
   .section
     .title

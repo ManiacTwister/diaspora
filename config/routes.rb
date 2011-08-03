@@ -4,6 +4,8 @@
 
 Diaspora::Application.routes.draw do
 
+  get "mention/index"
+
   # Posting and Reading
 
   resources :reshares
@@ -11,6 +13,7 @@ Diaspora::Application.routes.draw do
   resources :aspects do
     put :toggle_contact_visibility
   end
+  get '/mentions' => 'mentions#index', :as => 'mentions'
 
   resources :status_messages, :only => [:new, :create]
 
