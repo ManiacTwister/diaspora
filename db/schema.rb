@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730173443) do
+ActiveRecord::Schema.define(:version => 20110803061532) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -128,8 +128,10 @@ ActiveRecord::Schema.define(:version => 20110730173443) do
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
 
   create_table "mentions", :force => true do |t|
-    t.integer "post_id",   :null => false
-    t.integer "person_id", :null => false
+    t.integer  "post_id",    :null => false
+    t.integer  "person_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "mentions", ["person_id", "post_id"], :name => "index_mentions_on_person_id_and_post_id", :unique => true
