@@ -46,6 +46,7 @@ javascripts:
     - public/javascripts/rails.js # we only include this to hijack ajax requests
     - public/javascripts/vendor/mbp-helper.js
     - public/javascripts/mobile.js
+    - public/javascripts/fileuploader-custom.js
     
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
@@ -85,4 +86,5 @@ stylesheets:
 
   mobile:
     - public/stylesheets/mobile.css
+    - public/stylesheets/vendor/fileuploader.css
 

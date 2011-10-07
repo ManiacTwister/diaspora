@@ -225,5 +225,7 @@ $(document).ready(function(){
     evt.preventDefault();
     $("#new_status_message").submit();
   });
+  
+  createUploader();
 
 });

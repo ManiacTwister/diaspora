@@ -16,6 +16,9 @@
     = status.hidden_field :provider_display_name, :value => 'mobile'
     = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4, :autofocus => "autofocus"
 
+    #file-upload{:title => t('.upload_photos')}
+      = image_tag 'icons/camera_mobile.png', :height => 14, :style => "float:right;"
+
   %fieldset
     %select{:id => "aspect_ids_", :name => "aspect_ids[]", :style => "float:right;"}
       %option{:value => 'public'}
@@ -28,4 +31,7 @@
         %option{:value => aspect.id}
           = "· #{aspect.name}"
 
+
+#publisher_photo_upload
+  = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
 

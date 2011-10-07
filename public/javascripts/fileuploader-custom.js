@@ -404,6 +404,10 @@ qq.FileUploaderBasic.prototype = {
     },
     _validateFile: function(file){
         var name, size;
+        // Stores data from operating system and browser you are using.
+        var uagent = navigator.userAgent.toLowerCase();
+        var deviceAndroid = "android";
+        var deviceMobile = "mobile";
 
         if (file.value){
             // it is a file input
@@ -415,11 +419,14 @@ qq.FileUploaderBasic.prototype = {
             size = file.fileSize != null ? file.fileSize : file.size;
         }
 
-        if (! this._isAllowedExtension(name)){
+       if (! this._isAllowedExtension(name)){
             this._error('typeError', name);
             return false;
 
-        } else if (size === 0){
+        } else if ((size === 0) && ((uagent.search(deviceAndroid) > -1) || (uagent.search(deviceMobile) > -1))) {
+            return true;
+
+        } else if (size === 0)  {
             this._error('emptyError', name);
             return false;
 
